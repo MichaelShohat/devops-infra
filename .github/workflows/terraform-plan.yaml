@@ -1,11 +1,10 @@
 name: "Terraform Plan and Apply"
 
-## will destroy and apply on push to main
+## will validate, init and plan on PR
 on:
-  push:
+  pull_request:
     branches: ["main"]
 
-    
 jobs:
   build:
 
@@ -23,19 +22,15 @@ jobs:
 
     - uses: hashicorp/setup-terraform@v3
 
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate
+
     - name: Terraform Init
       id: init
       run: terraform init
 
-    - name: Terraform Destory!
-      id: destory
-      run: terraform apply -destroy -auto-approve
-
     - name: Terraform Plan
       id: plan
       run: terraform plan
-
-    - name: Terraform Apply
-      id: apply
-      run: terraform apply -auto-approve
 
