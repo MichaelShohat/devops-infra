@@ -29,14 +29,14 @@ jobs:
 
   #  - name: Terraform Destory!
   #    id: destory
-  #    run: terraform apply -destroy -auto-approve -lock=false
+  #    run: terraform apply -destroy -auto-approve 
       
 
     - name: Terraform Plan
       id: plan
-      run: terraform plan -lock=false
+      run: terraform plan
 
     - name: Terraform Apply
       id: apply
-      run: terraform apply -auto-approve -lock=false
+      run: terraform apply -auto-approve
 
