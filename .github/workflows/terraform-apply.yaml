@@ -27,9 +27,9 @@ jobs:
       id: init
       run: terraform init
 
-  #  - name: Terraform Destory!
-  #    id: destory
-  #    run: terraform apply -destroy -auto-approve 
+    - name: Terraform Destory!
+      id: destory
+      run: terraform apply -destroy -auto-approve 
       
 
     - name: Terraform Plan
