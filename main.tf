@@ -37,7 +37,8 @@ module "vpc" {
   single_nat_gateway = true
 
   public_subnet_tags = {
-    "kubernetes.io/role/elb" = 1
+    "kubernetes.io/role/elb" = 1,
+    "kubernetes.io/cluster/eks-michaels" = "shared"
   }
 
   private_subnet_tags = {
