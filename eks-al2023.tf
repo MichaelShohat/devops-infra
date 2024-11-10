@@ -49,4 +49,5 @@ module "eks_al2023" {
   }
 
   tags = local.tags
+  
 }
