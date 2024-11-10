@@ -1,4 +1,4 @@
-name: "Terraform Plan and Apply"
+name: "Terraform Apply"
 
 ## will destroy and apply on push to main
 on:
