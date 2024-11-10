@@ -1,12 +1,9 @@
 name: "Terraform Plan and Apply"
 
-## will plan and apply for every change for now!
+## will destroy and apply on push to main
 on:
-  workflow_dispatch: 
   push:
-    branches: [ "master", "dev"]
-  pull_request:
-    branches: [ "master" ]
+    branches: ["main"]
 
     
 jobs:
@@ -30,9 +27,9 @@ jobs:
       id: init
       run: terraform init
 
-    - name: Terraform Plan
-      id: plan
-      run: terraform plan
+    - name: Terraform Destory!
+      id: destory
+      run: terraform apply -destroy -auto-approve
 
     - name: Terraform Apply
       id: apply
