@@ -15,15 +15,15 @@ module "eks_al2023" {
   cluster_upgrade_policy = {
     support_type = "STANDARD"
   }
-  vpc_id     = module.vpc.vpc_id
-  subnet_ids = module.vpc.private_subnets
+  vpc_id                                   = module.vpc.vpc_id
+  subnet_ids                               = module.vpc.private_subnets
   enable_cluster_creator_admin_permissions = true
   eks_managed_node_groups = {
     example = {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
       instance_types = ["t2.small"]
-      min_size = 2
-      max_size = 3
+      min_size       = 2
+      max_size       = 3
       # This value is ignored after the initial creation
       # https://github.com/bryantbiggs/eks-desired-size-hack
       desired_size = 2
@@ -50,5 +50,5 @@ module "eks_al2023" {
   }
 
   tags = local.tags
-  
+
 }

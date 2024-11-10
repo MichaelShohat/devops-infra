@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 data "aws_availability_zones" "available" {
-    state = "available"
+  state = "available"
 }
 
 locals {
@@ -12,7 +12,7 @@ locals {
 
   vpc_cidr = "10.0.0.0/16"
   azs      = slice(data.aws_availability_zones.available.names, 0, 2)
-  
+
   tags = {
     Desc = "provisioned my Michael Shohat for home assigment"
   }
