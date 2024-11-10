@@ -1,0 +1,28 @@
+name: "Terraform Plan and Apply"
+
+## will plan and apply for every change for now!
+on:
+  workflow_dispatch: 
+  push:
+    branches: [ "master", "dev"]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan
+
+    - name: Terraform Apply
+      id: apply
+      run: terrafrom apply -auto-approve
+
