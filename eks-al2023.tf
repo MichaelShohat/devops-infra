@@ -17,7 +17,7 @@ module "eks_al2023" {
   }
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
-
+  enable_cluster_creator_admin_permissions = true
   eks_managed_node_groups = {
     example = {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
